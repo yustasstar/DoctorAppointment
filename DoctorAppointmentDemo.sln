@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentDemo.UI", "DoctorAppointmentDemo.UI\DoctorAppointmentDemo.UI.csproj", "{AF8D59DC-3A97-4023-BBC5-11689741EABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "DoctorAppointmentDemo.UI\UI.csproj", "{AF8D59DC-3A97-4023-BBC5-11689741EABD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentDemo.Data", "DoctorAppointmentDemo.Data\DoctorAppointmentDemo.Data.csproj", "{9BB16C98-A9C2-44A6-A7BE-69CA8E603664}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "DoctorAppointmentDemo.Data\Data.csproj", "{9BB16C98-A9C2-44A6-A7BE-69CA8E603664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentDemo.Domain", "DoctorAppointmentDemo.Domain\DoctorAppointmentDemo.Domain.csproj", "{65318ABD-B0A4-4BD1-AF1E-39AA2C9B9AFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "DoctorAppointmentDemo.Domain\Domain.csproj", "{65318ABD-B0A4-4BD1-AF1E-39AA2C9B9AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAppointmentDemo.Service", "DoctorAppointmentDemo.Service\DoctorAppointmentDemo.Service.csproj", "{D025BC1F-DEC7-4B57-817B-B4DA841506CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "DoctorAppointmentDemo.Service\Service.csproj", "{D025BC1F-DEC7-4B57-817B-B4DA841506CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
