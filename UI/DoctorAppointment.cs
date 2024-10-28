@@ -2,8 +2,6 @@
 using Domain.Enums;
 using Service.Interfaces;
 using Service.Services;
-using System.Data;
-
 
 namespace UI
 {
