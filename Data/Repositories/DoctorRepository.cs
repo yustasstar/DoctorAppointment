@@ -1,6 +1,7 @@
 ﻿using Data.Configuration;
 using Data.Interfaces;
 using Domain.Entities;
+using System.Text;
 
 namespace Data.Repositories
 {
@@ -11,7 +12,7 @@ namespace Data.Repositories
 
         public DoctorRepository()
         {
-            dynamic result = ReadFromAppSettings();
+            var result = ReadFromAppSettings();
 
             Path = result.Database.Doctors.Path;
             LastId = result.Database.Doctors.LastId;
@@ -19,7 +20,18 @@ namespace Data.Repositories
 
         public override void ShowInfo(Doctor doctor)
         {
-            Console.WriteLine(); // implement view of all object fields
+            var infoBuilder = new StringBuilder();
+            infoBuilder.AppendLine("===== Doctor Information =====");
+            infoBuilder.AppendLine($"Type:        {doctor.DoctorType}");
+            infoBuilder.AppendLine($"Experience:  {doctor.Experience} years");
+            infoBuilder.AppendLine($"Salary:      {doctor.Salary:C}");
+            infoBuilder.AppendLine($"Name:        {doctor.Name ?? "N/A"}");
+            infoBuilder.AppendLine($"Surname:     {doctor.Surname ?? "N/A"}");
+            infoBuilder.AppendLine($"Phone:       {doctor.Phone ?? "N/A"}");
+            infoBuilder.AppendLine($"Email:       {doctor.Email ?? "N/A"}");
+            infoBuilder.AppendLine("=============================");
+
+            Console.WriteLine(infoBuilder.ToString());
         }
 
         protected override void SaveLastId()
