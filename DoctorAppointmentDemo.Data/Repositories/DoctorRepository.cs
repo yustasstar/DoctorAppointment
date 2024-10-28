@@ -1,13 +1,12 @@
-﻿using MyDoctorAppointment.Data.Configuration;
-using MyDoctorAppointment.Data.Interfaces;
-using MyDoctorAppointment.Domain.Entities;
+﻿using Data.Configuration;
+using Data.Interfaces;
+using Domain.Entities;
 
-namespace MyDoctorAppointment.Data.Repositories
+namespace Data.Repositories
 {
     public class DoctorRepository : GenericRepository<Doctor>, IDoctorRepository
     {
         public override string Path { get; set; }
-
         public override int LastId { get; set; }
 
         public DoctorRepository()
@@ -28,7 +27,7 @@ namespace MyDoctorAppointment.Data.Repositories
             dynamic result = ReadFromAppSettings();
             result.Database.Doctors.LastId = LastId;
 
-            File.WriteAllText(Constants.AppSettingsPath, result.ToString());
+            File.WriteAllText(Constants.JsonAppSettingsPath, result.ToString());
         }
     }
 }

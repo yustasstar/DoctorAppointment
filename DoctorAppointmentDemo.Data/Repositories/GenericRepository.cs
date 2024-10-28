@@ -1,14 +1,13 @@
-﻿using MyDoctorAppointment.Data.Configuration;
-using MyDoctorAppointment.Data.Interfaces;
-using MyDoctorAppointment.Domain.Entities;
+﻿using Data.Configuration;
+using Data.Interfaces;
+using Domain.Entities;
 using Newtonsoft.Json;
 
-namespace MyDoctorAppointment.Data.Repositories
+namespace Data.Repositories
 {
     public abstract class GenericRepository<TSource> : IGenericRepository<TSource> where TSource : Auditable
     {
         public abstract string Path { get; set; }
-
         public abstract int LastId { get; set; }
 
         public TSource Create(TSource source)
@@ -66,9 +65,7 @@ namespace MyDoctorAppointment.Data.Repositories
         }
 
         public abstract void ShowInfo(TSource source);
-
         protected abstract void SaveLastId();
-
-        protected dynamic ReadFromAppSettings() => JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(Constants.AppSettingsPath))!;
+        protected dynamic ReadFromAppSettings() => JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(Constants.JsonAppSettingsPath))!;
     }
 }
