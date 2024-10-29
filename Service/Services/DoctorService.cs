@@ -30,10 +30,10 @@ namespace Service.Services
             return _doctorRepository.GetById(id);
         }
 
-        public IEnumerable<DoctorModel> GetAll()
+        public List<DoctorModel> GetAll()
         {
             var doctors = _doctorRepository.GetAll();
-            var doctorModels = doctors.Select(x => x.ConvertTo());
+            var doctorModels = doctors.Select(x => x.ConvertTo()).ToList();
             return doctorModels;
         }
 

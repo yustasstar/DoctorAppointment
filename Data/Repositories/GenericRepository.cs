@@ -40,7 +40,7 @@ namespace Data.Repositories
             return true;
         }
 
-        public IEnumerable<TSource> GetAll()
+        public List<TSource> GetAll()
         {
             //if (!File.Exists(Path))
             //{
@@ -55,7 +55,7 @@ namespace Data.Repositories
             //    json = "[]";
             //}
 
-            return Serialization.Deserialize<IEnumerable<TSource>>(Path);
+            return Serialization.Deserialize<List<TSource>>(Path);
         }
 
         public TSource? GetById(int id)

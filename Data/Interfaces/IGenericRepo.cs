@@ -7,7 +7,7 @@ namespace Data.Interfaces
         TSource Create(TSource source);
         TSource? GetById(int id);
         TSource Update(int id, TSource source);
-        IEnumerable<TSource> GetAll();
+        List<TSource> GetAll();
         bool Delete(int id);
     }
 }
