@@ -1,5 +1,4 @@
 ﻿using Data.Configuration;
-using Data.Interfaces;
 using Service.Services;
 
 namespace UI
