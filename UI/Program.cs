@@ -7,12 +7,12 @@ namespace UI
     {
         public static void Main()
         {
-            DoctorAppointment? doctorAppointment = null;
-
             Console.WriteLine("Select Data sourse format:");
             Console.WriteLine("1. JSON");
             Console.WriteLine("2. XML");
+            
             var dataFormat = Console.ReadLine();
+            DoctorAppointment? doctorAppointment = null;
 
             switch (dataFormat)
             {
