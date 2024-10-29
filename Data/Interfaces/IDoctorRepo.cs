@@ -2,7 +2,7 @@
 
 namespace Data.Interfaces
 {
-    public interface IDoctorRepository : IGenericRepository<Doctor>
+    public interface IDoctorRepo : IGenericRepo<Doctor>
     {
         // you can add more specific doctor's methods
     }

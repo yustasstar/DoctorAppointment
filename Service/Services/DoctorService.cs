@@ -2,16 +2,17 @@
 using Data.Repositories;
 using Domain.Entities;
 using Service.Interfaces;
+using Service.ViewModels;
 
 namespace Service.Services
 {
     public class DoctorService : IDoctorService
     {
-        private readonly IDoctorRepository _doctorRepository;
+        private readonly IDoctorRepo _doctorRepository;
 
-        public DoctorService()
+        public DoctorService(string appSettings, ISerialization serialization)
         {
-            _doctorRepository = new DoctorRepository();
+            _doctorRepository = new DoctorRepository(appSettings, serialization);
         }
 
         public Doctor Create(Doctor doctor)
@@ -29,9 +30,11 @@ namespace Service.Services
             return _doctorRepository.GetById(id);
         }
 
-        public IEnumerable<Doctor> GetAll()
+        public IEnumerable<DoctorModel> GetAll()
         {
-            return _doctorRepository.GetAll();
+            var doctors = _doctorRepository.GetAll();
+            var doctorModels = doctors.Select(x => x.ConvertTo());
+            return doctorModels;
         }
 
         public Doctor Update(int id, Doctor doctor)

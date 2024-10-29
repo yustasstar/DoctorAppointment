@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Data.Interfaces;
+using Domain.Entities;
 using Domain.Enums;
 using Service.Interfaces;
 using Service.Services;
@@ -9,30 +10,13 @@ namespace UI
     {
         private readonly IDoctorService _doctorService;
 
-        public DoctorAppointment()
+        public DoctorAppointment(string appsettings, ISerialization serialization)
         {
-            _doctorService = new DoctorService();
+            _doctorService = new DoctorService(appsettings, serialization);
         }
 
         public void Menu()
         {
-            var dataType = new DataSourceType();
-
-            switch (dataType)
-            {
-                case DataSourceType.JSON:
-                    break;
-                case DataSourceType.XML:
-                    break;
-                default:
-                    break;
-            }
-            //while (true)
-            //{
-            //    // add Enum for menu items and describe menu
-            //    break;
-            //}
-
             Console.WriteLine("Current doctors list: ");
             var docs = _doctorService.GetAll();
 
@@ -48,7 +32,7 @@ namespace UI
                 Name = "Vasya",
                 Surname = "Petrov",
                 Experience = 20,
-                DoctorType = Domain.Enums.DoctorTypes.Dentist
+                DoctorType = DoctorTypes.Dentist
             };
 
             _doctorService.Create(newDoctor);

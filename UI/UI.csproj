@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\DoctorAppointmentDemo.Service\Service.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />

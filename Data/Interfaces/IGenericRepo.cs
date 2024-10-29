@@ -2,7 +2,7 @@
 
 namespace Data.Interfaces
 {
-    public interface IGenericRepository<TSource> where TSource : Auditable
+    public interface IGenericRepo<TSource> where TSource : Auditable
     {
         TSource Create(TSource source);
         TSource? GetById(int id);
