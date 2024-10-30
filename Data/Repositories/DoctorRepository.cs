@@ -22,7 +22,7 @@ namespace Data.Repositories
         public override void ShowInfo(Doctor doctor)
         {
             var infoBuilder = new StringBuilder();
-            infoBuilder.AppendLine("===== Doctor Information =====");
+            infoBuilder.AppendLine("===== Doctor Information ===========");
             infoBuilder.AppendLine($"Name:        {doctor.Name ?? "N/A"}");
             infoBuilder.AppendLine($"Surname:     {doctor.Surname ?? "N/A"}");
             infoBuilder.AppendLine($"Phone:       {doctor.Phone ?? "N/A"}");
@@ -30,7 +30,7 @@ namespace Data.Repositories
             infoBuilder.AppendLine($"Type:        {doctor.DoctorType}");
             infoBuilder.AppendLine($"Experience:  {doctor.Experience} years");
             infoBuilder.AppendLine($"Salary:      {doctor.Salary:C}");
-            infoBuilder.AppendLine("=============================");
+            infoBuilder.AppendLine("====================================");
 
             Console.WriteLine(infoBuilder.ToString());
         }
@@ -40,7 +40,6 @@ namespace Data.Repositories
             var result = ReadFromAppSettings();
             result.Database.Doctors.LastId = LastId;
             Serialization.Serialize(AppSettings, result);
-            //File.WriteAllText(Constants.JsonAppSettingsPath, result.ToString());
         }
     }
 }

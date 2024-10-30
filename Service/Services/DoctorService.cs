@@ -15,14 +15,12 @@ namespace Service.Services
             _doctorRepository = new DoctorRepository(appSettings, serialization);
         }
 
-        public Doctor Create(Doctor doctor)
-        {
-            return _doctorRepository.Create(doctor);
-        }
 
-        public bool Delete(int id)
+        public List<DoctorModel> GetAll()
         {
-            return _doctorRepository.Delete(id);
+            var doctors = _doctorRepository.GetAll();
+            var doctorModelList = doctors.Select(x => x.ConvertTo()).ToList();
+            return doctorModelList;
         }
 
         public Doctor? Get(int id)
@@ -30,16 +28,19 @@ namespace Service.Services
             return _doctorRepository.GetById(id);
         }
 
-        public List<DoctorModel> GetAll()
+        public Doctor Create(Doctor doctor)
         {
-            var doctors = _doctorRepository.GetAll();
-            var doctorModels = doctors.Select(x => x.ConvertTo()).ToList();
-            return doctorModels;
+            return _doctorRepository.Create(doctor);
         }
 
         public Doctor Update(int id, Doctor doctor)
         {
             return _doctorRepository.Update(id, doctor);
+        }
+
+        public bool Delete(int id)
+        {
+            return _doctorRepository.Delete(id);
         }
     }
 }

@@ -4,10 +4,10 @@ namespace Data.Interfaces
 {
     public interface IGenericRepo<TSource> where TSource : Auditable
     {
-        TSource Create(TSource source);
+        List<TSource> GetAll();
         TSource? GetById(int id);
         TSource Update(int id, TSource source);
-        List<TSource> GetAll();
+        TSource Create(TSource source);
         bool Delete(int id);
     }
 }
