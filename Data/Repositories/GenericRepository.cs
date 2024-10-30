@@ -22,7 +22,6 @@ namespace Data.Repositories
             source.Id = ++LastId;
             source.CreatedAt = DateTime.Now;
             var doctors = GetAll().Append(source).ToList();
-            //File.WriteAllText(Path, JsonConvert.SerializeObject(GetAll().Append(source), Formatting.Indented));
             SaveLastId();
 
             return source;

@@ -19,20 +19,9 @@ namespace Data.Repositories
             LastId = result.Database.Doctors.LastId;
         }
 
-        public override void ShowInfo(Doctor doctor)
+        public override void ShowInfo(Doctor source)
         {
-            var infoBuilder = new StringBuilder();
-            infoBuilder.AppendLine("===== Doctor Information ===========");
-            infoBuilder.AppendLine($"Name:        {doctor.Name ?? "N/A"}");
-            infoBuilder.AppendLine($"Surname:     {doctor.Surname ?? "N/A"}");
-            infoBuilder.AppendLine($"Phone:       {doctor.Phone ?? "N/A"}");
-            infoBuilder.AppendLine($"Email:       {doctor.Email ?? "N/A"}");
-            infoBuilder.AppendLine($"Type:        {doctor.DoctorType}");
-            infoBuilder.AppendLine($"Experience:  {doctor.Experience} years");
-            infoBuilder.AppendLine($"Salary:      {doctor.Salary:C}");
-            infoBuilder.AppendLine("====================================");
-
-            Console.WriteLine(infoBuilder.ToString());
+            Console.WriteLine();
         }
 
         protected override void SaveLastId()

@@ -8,21 +8,13 @@ namespace UI
     {
         public static void Main()
         {
-            DoctorAppointment? doctorAppointment;
             var dataFormat = DoctorAppointment.GetSourceType();
-
-            switch (dataFormat)
+            DoctorAppointment? doctorAppointment = dataFormat switch
             {
-                case DataSourceType.JSON:
-                    doctorAppointment = new DoctorAppointment(Constants.JsonAppSettingsPath, new JsonDataService());
-                    break;
-                case DataSourceType.XML:
-                    doctorAppointment = new DoctorAppointment(Constants.XmlAppSettingsPath, new XmlDataService());
-                    break;
-                default:
-                    doctorAppointment = null;
-                    break;
-            }
+                DataSourceType.JSON => new DoctorAppointment(Constants.JsonAppSettingsPath, new JsonDataService()),
+                DataSourceType.XML => new DoctorAppointment(Constants.XmlAppSettingsPath, new XmlDataService()),
+                _ => null,
+            };
 
             doctorAppointment?.Menu();
         }

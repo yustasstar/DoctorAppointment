@@ -25,6 +25,7 @@ namespace Service.ViewModels
 
             return new DoctorModel()
             {
+                Id = doctor.Id,
                 Name = doctor.Name,
                 Surname = doctor.Surname,
                 Phone = doctor.Phone,
