@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities
+﻿using Domain.Entities;
+
+namespace Service.ViewModels
 {
-    public class Appointment : Auditable
+    public class AppointmentModel
     {
         public Patient? Patient { get; set; }
         public Doctor? Doctor { get; set; }

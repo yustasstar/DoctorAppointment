@@ -22,7 +22,6 @@ namespace Data.Repositories
             source.Id = ++LastId;
             source.CreatedAt = DateTime.Now;
             var doctors = GetAll().Append(source).ToList();
-            //File.WriteAllText(Path, JsonConvert.SerializeObject(GetAll().Append(source), Formatting.Indented));
             SaveLastId();
 
             return source;
@@ -35,26 +34,11 @@ namespace Data.Repositories
 
             Serialization.Serialize(Path, GetAll().Where(x => x.Id != id));
 
-            //File.WriteAllText(Path, JsonConvert.SerializeObject(GetAll().Where(x => x.Id != id), Formatting.Indented));
-
             return true;
         }
 
         public List<TSource> GetAll()
         {
-            //if (!File.Exists(Path))
-            //{
-            //    File.WriteAllText(Path, "[]");
-            //}
-
-            //var json = File.ReadAllText(Path);
-
-            //if (string.IsNullOrWhiteSpace(json))
-            //{
-            //    File.WriteAllText(Path, "[]");
-            //    json = "[]";
-            //}
-
             return Serialization.Deserialize<List<TSource>>(Path);
         }
 
@@ -68,8 +52,6 @@ namespace Data.Repositories
             source.UpdatedAt = DateTime.Now;
             source.Id = id;
 
-            //File.WriteAllText(Path, JsonConvert.SerializeObject(GetAll().Select(x => x.Id == id ? source : x), Formatting.Indented));
-
             Serialization.Serialize(Path, GetAll().Select(x => x.Id == id ? source : x));
             return source;
         }
@@ -80,6 +62,5 @@ namespace Data.Repositories
         {
             return Serialization.Deserialize<Repository>(AppSettings);
         }
-        //protected dynamic ReadFromAppSettings() => JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(Constants.JsonAppSettingsPath))!;
     }
 }

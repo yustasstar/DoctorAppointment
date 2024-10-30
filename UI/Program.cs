@@ -1,4 +1,5 @@
 ﻿using Data.Configuration;
+using Domain.Enums;
 using Service.Services;
 
 namespace UI
@@ -7,28 +8,15 @@ namespace UI
     {
         public static void Main()
         {
-            Console.WriteLine("Select Data sourse format:");
-            Console.WriteLine("1. JSON");
-            Console.WriteLine("2. XML");
-            
-            var dataFormat = Console.ReadLine();
-            DoctorAppointment? doctorAppointment = null;
-
-            switch (dataFormat)
+            var dataFormat = DoctorAppointment.GetSourceType();
+            DoctorAppointment? doctorAppointment = dataFormat switch
             {
-                case "1":
-                    doctorAppointment = new DoctorAppointment(Constants.JsonAppSettingsPath, new JsonDataService());
-                    break;
-                case "2":
-                    doctorAppointment = new DoctorAppointment(Constants.XmlAppSettingsPath, new XmlDataService());
-                    break;
-                default:
-                    Console.WriteLine("Inccorect Data sourse type. Please enter correct value!");
-                    dataFormat = Console.ReadLine();
-                    break;
-            }
+                DataSourceType.JSON => new DoctorAppointment(Constants.JsonAppSettingsPath, new JsonDataService()),
+                DataSourceType.XML => new DoctorAppointment(Constants.XmlAppSettingsPath, new XmlDataService()),
+                _ => null,
+            };
 
-            doctorAppointment.Menu();
+            doctorAppointment?.Menu();
         }
     }
 }

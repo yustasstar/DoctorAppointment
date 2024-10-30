@@ -2,7 +2,7 @@
 <Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Database>
     <Doctors>
-      <LastId>2</LastId>
+      <LastId>7</LastId>
       <Path>..\\..\\..\\..\\Data\\MockedDatabase\\Doctors.xml</Path>
     </Doctors>
     <Patients>

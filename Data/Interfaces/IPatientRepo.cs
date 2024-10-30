@@ -1,6 +1,8 @@
-﻿namespace Data.Interfaces
+﻿using Domain.Entities;
+
+namespace Data.Interfaces
 {
-    public interface IPatientRepo
+    public interface IPatientRepo : IGenericRepo<Patient>
     {
     }
 }
