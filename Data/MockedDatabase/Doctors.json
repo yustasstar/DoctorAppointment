@@ -22,5 +22,17 @@
     "Id": 3,
     "CreatedAt": "2024-01-04T21:15:10.6132587+02:00",
     "UpdatedAt": "0001-01-01T00:00:00"
+  },
+  {
+    "DoctorType": 3,
+    "Experience": 12,
+    "Salary": 12000.0,
+    "Name": "NewDoctor",
+    "Surname": "Test1",
+    "Phone": "N/A",
+    "Email": "N/A",
+    "Id": 10,
+    "CreatedAt": "2024-10-31T18:25:20.0463979+02:00",
+    "UpdatedAt": "0001-01-01T00:00:00"
   }
 ]

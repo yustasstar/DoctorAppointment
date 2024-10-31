@@ -21,10 +21,19 @@ namespace Data.Repositories
         {
             source.Id = ++LastId;
             source.CreatedAt = DateTime.Now;
-            var doctors = GetAll().Append(source).ToList();
+            var entities = GetAll();
+            entities.Add(source);
+            Serialization.Serialize(Path, entities);
             SaveLastId();
 
             return source;
+
+            //source.Id = ++LastId;
+            //source.CreatedAt = DateTime.Now;
+            //var doctors = GetAll().Append(source).ToList();
+            //SaveLastId();
+
+            //return source;
         }
 
         public bool Delete(int id)
@@ -33,7 +42,6 @@ namespace Data.Repositories
                 return false;
 
             Serialization.Serialize(Path, GetAll().Where(x => x.Id != id));
-
             return true;
         }
 
