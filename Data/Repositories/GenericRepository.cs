@@ -27,13 +27,6 @@ namespace Data.Repositories
             SaveLastId();
 
             return source;
-
-            //source.Id = ++LastId;
-            //source.CreatedAt = DateTime.Now;
-            //var doctors = GetAll().Append(source).ToList();
-            //SaveLastId();
-
-            //return source;
         }
 
         public bool Delete(int id)
